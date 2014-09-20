@@ -43,5 +43,15 @@ Loading JSON data from the [Weather Underground API](http://www.wunderground.com
 
 ### Example 2: Parse/Filter
 * Requesting data for different cities.
-* Reading weekdays, and high and low temperatures.
+* Reading high and low temperatures.
 * Storing data into City objects.
+
+### Example 3: Represent
+* Comparing temperatures using a line chart.
+
+### Example 4: Interact/Refine
+* Using an area chart.
+* Adding visibility switch to cities.
+
+### Example 5: Refine
+* Experimenting with bar charts to represent amplitudes.
