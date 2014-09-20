@@ -10,7 +10,7 @@ We are going to work with data from [Weather Underground](http://www.wundergroun
 ## Setup
 
 ### Addons
-These examples require [ofxJSON](https://github.com/jefftimesten/ofxJSON). Download and follow the installing instructions.
+These examples require [ofxJSON](https://github.com/jefftimesten/ofxJSON). Download and follow the installation instructions.
 
 ### Weather Underground API
 * Setting up an account and API access:
