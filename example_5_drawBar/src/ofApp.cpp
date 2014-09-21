@@ -68,6 +68,8 @@ void ofApp::setup(){
     }
     
     drawValues = true;
+    
+    chartType = 0;
 }
 
 //--------------------------------------------------------------
@@ -81,11 +83,24 @@ void ofApp::draw(){
     
     //    ofNoFill();
     //    ofRect(chartPos, chartSize.x, chartSize.y);
+    ofSetColor(255);
+    ofDrawBitmapString("Press space to toggle values visibility.\nPress numbers from 0 to " + ofToString(NUM_CITIES) + " to toggle city visibility.\nTo alternate chart types, press LEFT and RIGHT arrow keys.", 20, ofGetHeight() * 0.93);
+    
     
     for(int i = 0; i < allCities.size(); i++){
-//        allCities[i].draw("line", drawValues);
-//        allCities[i].draw("area", drawValues);
-        allCities[i].draw("bar", drawValues);
+        switch (chartType) {
+            case 0:
+                allCities[i].draw("line", drawValues);
+                break;
+
+            case 1:
+                allCities[i].draw("area", drawValues);
+                break;
+                
+            default:
+                allCities[i].draw("bar", drawValues);
+                break;
+        }
     }
     
 }
@@ -93,15 +108,31 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 //    cout << key << endl;
+    
+    // Show/hide values
     if(key == ' '){
         drawValues = (drawValues == true) ? (false) : (true);
-    }
     
-    int nCity = key - 49;
-    if(nCity >= 0 && nCity < NUM_CITIES){
+    // Show/hide cities
+    }else if(key >= 49 && key < 49 + NUM_CITIES){
+        int nCity = key - 49;
         // A short switch!
         allCities[nCity].isVisible = (allCities[nCity].isVisible == true) ? (false) : (true);
+    
+    // Change chart type
+    }else if(key == OF_KEY_LEFT || OF_KEY_RIGHT){
+        if (key == OF_KEY_LEFT) {
+            chartType --;
+        }else if(key == OF_KEY_RIGHT){
+            chartType ++;
+        }
+        if(chartType < 0){
+            chartType = 2;
+        }else if (chartType > 2){
+            chartType = 0;
+        }
     }
+    
 }
 
 //--------------------------------------------------------------

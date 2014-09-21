@@ -31,7 +31,7 @@ void City::draw(string _chartType, bool _drawValues){
     ofPoint pos;
     pos.set(10, (cityIndex + 1) * 20);
     ofSetColor(highColor);
-    ofDrawBitmapString(name, pos);
+    ofDrawBitmapString("[" + ofToString(cityIndex + 1) + "] " + name, pos);
     
     // Chart
     if(isVisible){
@@ -54,9 +54,7 @@ void City::setLayout(ofPoint _chartPos, ofPoint _chartSize, float _highestTemp, 
 
 void City::drawBarChart(bool _drawValues){
     
-    
-    //    ofNoFill();
-    //    ofSetLineWidth(2);
+    ofFill();
     
     for(int i = 0; i < highs.size(); i++){
         
@@ -100,10 +98,8 @@ void City::drawBarChart(bool _drawValues){
 }
 
 void City::drawAreaChart(bool _drawValues){
-    
-    
-    //    ofNoFill();
-    //    ofSetLineWidth(2);
+
+    ofFill();
     
     // HIGH
     ofSetColor(255);
@@ -144,7 +140,7 @@ void City::drawAreaChart(bool _drawValues){
     ofColor areaColor = highColor;
     areaColor.a = 100;
     ofSetColor(areaColor);
-    
+
     ofEndShape(true);
 }
 

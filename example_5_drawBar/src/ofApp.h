@@ -24,4 +24,5 @@ public:
     /*---------- DATA ----------*/
     vector<City> allCities;
     bool drawValues;
+    int chartType;
 };
